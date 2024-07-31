@@ -6,7 +6,7 @@
 }
 
 body{
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.397), rgba(15, 14, 14, 0.9));
+    background: linear-gradient(to right, rgba(25, 2, 155, 0.4), rgba(30, 2, 134, 0.973));
 }
 main{
     width: 80vw;
@@ -24,6 +24,7 @@ main{
 
 .item {
 	height: 30%;
+    border-radius: 15px;
     overflow: hidden;
 }
 
