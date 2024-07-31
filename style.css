@@ -6,7 +6,11 @@
 }
 
 body{
-    background: linear-gradient(to right, black, rgba(15, 14, 14, 0.9));
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.397), rgba(15, 14, 14, 0.9));
+}
+main{
+    width: 80vw;
+    margin: 0 auto;
 }
 
 .list {
@@ -19,12 +23,11 @@ body{
 }
 
 .item {
-	width: 20%;
 	height: 30%;
     overflow: hidden;
 }
+
 img {
-    transform: scale(103%);
 	height: 100%;
 	width: 100%;
     object-fit: cover;
@@ -32,3 +35,47 @@ img {
 
 /* Hover */
 
+/* Left side */
+.list {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+.list .item{
+    transition: .5s;
+    filter: brightness(0)
+}
+
+.list .item:hover {
+    filter: brightness(1);
+    transform: translateZ(200px);
+}
+
+.list .item:hover + * {
+    filter: brightness(0.6);
+    transform: translateZ(150px) rotateY(40deg);
+}
+
+.list .item:hover + * + * {
+    filter: brightness(0.4);
+    transform: translateZ(70px) rotateY(28deg);
+}
+
+.list .item:hover + * + * + * {
+    filter: brightness(0.2);
+    transform: translateZ(30px) rotateY(10deg);
+}
+
+/* Right side */
+.list .item:has(+ *:hover) {
+    filter: brightness(0.6);
+    transform: translateZ(150px) rotateY(-40deg);
+}
+.list .item:has(+ * + *:hover) {
+    filter: brightness(0.4);
+    transform: translateZ(70px) rotateY(-28deg);
+}
+.list .item:has(+ * + * + *:hover) {
+    filter: brightness(0.2);
+    transform: translateZ(30px) rotateY(-10deg);
+}
